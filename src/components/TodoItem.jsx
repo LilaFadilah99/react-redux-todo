@@ -8,6 +8,10 @@ const TodoItem = ({ id, title, completed }) => {
     dispatch(completeTodo(id));
   };
 
+  const handleDeleteTodo = () => {
+    dispatch(deleteTodo(id));
+  };
+
   return (
     <li className={`list-group-item p-2 rounded mb-2 ${completed && "list-group-item-success"}`}>
       <div className="d-flex justify-content-between">
@@ -15,7 +19,9 @@ const TodoItem = ({ id, title, completed }) => {
           <input type="checkbox" className="mr-3" checked={completed} onClick={handleAddTodo}></input>
           <p className="ms-3 mb-0">{title}</p>
         </div>
-        <button className="btn btn-danger">Delete</button>
+        <button className="btn btn-danger" onClick={handleDeleteTodo}>
+          Delete
+        </button>
       </div>
     </li>
   );
